@@ -1,9 +1,12 @@
-import Image from "next/image";
-import { Card } from "@repo/ui/card";
-import {PrismaClient} from "@repo/db/client"
+"use client"
+import { signIn, signOut, useSession } from "next-auth/react";
+import { Appbar } from "@repo/ui/appbar";
 
-export default function Page() {
+export default function Page(): JSX.Element {
+  const session = useSession();
   return (
-    <div>Hi there</div>
+   <div>
+      <Appbar onSignin={signIn} onSignout={signOut} user={session.data?.user} />
+   </div>
   );
 }
