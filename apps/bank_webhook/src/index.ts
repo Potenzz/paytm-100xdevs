@@ -4,7 +4,7 @@ import { prisma } from "@repo/db/client";
 const app = express();
 
 app.post("/", async (req, res)=>{
-
+    //TODO: Add zod validation here?
     //add secret here. make sure this req is coming from legit way.
 
     const paymentInformation = {

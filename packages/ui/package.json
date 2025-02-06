@@ -8,6 +8,9 @@
     "dist"
   ],
   "exports": {
+    "./textinput": "./src/TextInput.tsx",
+    "./select": "./src/Select.tsx",
+    "./center": "./src/Center.tsx",
     "./styles.css": "./dist/index.css",
     "./button": "./src/button.tsx",
     "./card": "./src/card.tsx",
