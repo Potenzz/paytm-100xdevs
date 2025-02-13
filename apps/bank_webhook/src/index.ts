@@ -5,7 +5,8 @@ const app = express();
 
 app.post("/", async (req, res)=>{
     //TODO: Add zod validation here?
-    //add secret here. make sure this req is coming from legit way.
+    //TODO: add secret here. make sure this req is coming from legit way.
+    //TODO: check if this onRampTxn is processig or not. so the same request won't be processed twice.
 
     const paymentInformation = {
         token : req.body.token, 
