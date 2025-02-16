@@ -5,8 +5,12 @@
       {
         "name": "next"
       }
-    ]
+    ],
+    "paths": {
+      "@repo/store/*": ["../../packages/store/src/*"]  // 👈 Fix import resolution
+    }
   },
+  
   "include": [
     "**/*.ts",
     "**/*.tsx",
