@@ -1,12 +1,17 @@
 name: Build on PR
 
 on: 
+  workflow_dispatch: 
+  
   pull_request:
     branches:
       - main
+    
+    types: [labeled]
 
 jobs:
   build:
+    if: github.event.label.name == 'run-build'  # Run only if 'run-build' label is added
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repo
