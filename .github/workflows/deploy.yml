@@ -37,4 +37,4 @@ jobs:
             sudo docker pull potenz/paytm-100xdevs:latest
             sudo docker stop paytm-100xdevs || true
             sudo docker rm paytm-100xdevs || true
-            sudo docker run -d --name paytm-100xdevs -p 3005:3005 --restart unless-stopped potenz/paytm-100xdevs:latest
+            sudo docker run -d --name paytm-100xdevs -p 3005:3000 --restart unless-stopped potenz/paytm-100xdevs:latest
