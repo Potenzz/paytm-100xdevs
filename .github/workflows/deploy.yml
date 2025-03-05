@@ -1,9 +1,7 @@
 name: Build and Deploy to DockerHub
 
 on:
-  push:
-    branches:
-      - main
+  workflow_dispatch: 
 
 jobs:
   build-and-push:
@@ -28,5 +26,15 @@ jobs:
 
       - name: Verify Pushed Image
         run: docker pull potenz/paytm-100xdevs:latest
-
-
+      
+      - name: Deploy to EC2
+        uses: appleboy/ssh-action@master
+        with: 
+          host: ${{secrets.SSH_HOST}}
+          username: ${{secrets.SSH_USERNAME}}
+          key: ${{secrets.SSH_KEY}}
+          script: 
+            sudo docker pull potenz/paytm-100xdevs:latest
+            sudo docker stop paytm-100xdevs || true
+            sudo docker rm paytm-100xdevs || true
+            sudo docker run -d --name paytm-100xdevs -p 3005:3005 --restart unless-stopped potenz/paytm-100xdevs:latest
