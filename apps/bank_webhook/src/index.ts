@@ -3,6 +3,8 @@ import { prisma } from "@repo/db/client";
 
 const app = express();
 
+app.use(express.json())
+
 app.post("/", async (req, res)=>{
     //TODO: Add zod validation here?
     //TODO: add secret here. make sure this req is coming from legit way.
@@ -48,12 +50,6 @@ app.post("/", async (req, res)=>{
             message:"Error while processing bank_webhook. "
         })
     }
-    
-
-
-    
-
-    
-
-
 })
+
+app.listen(3003);
